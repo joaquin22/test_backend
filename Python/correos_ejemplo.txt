@@ -1,0 +1,4 @@
+valid@example.com
+firstname.valid@example.com
+invalid@example
+invalid@example..com

@@ -1,25 +1,30 @@
 import time
 
-def tiempo_ejecucion(func):
+
+def excec_time(func):
 
     def wrapper(*args, **kwargs):
         start_time = time.time()
-        resultado = func(*args, **kwargs)
+        result = func(*args, **kwargs)
         end_time = time.time()
-        tiempo_ejecucion = end_time - start_time
-        print(f"La función {func.__name__} tardó {tiempo_ejecucion:.2f} segundos en ejecutarse.")
-        return resultado
+        total_time = end_time - start_time
+        print(
+            f"La función {func.__name__} tardó {total_time:.2f} segundos en ejecutarse."
+        )
+        return result
 
     return wrapper
 
-@tiempo_ejecucion
-def ejemplo_funcion(n):
-    suma = 0
+
+@excec_time
+def test_funcions(n):
+    value = 0
     for i in range(1, n + 1):
-        suma += i
-        
+        value += i
+
     time.sleep(2.5)
-    return suma
+    return value
+
 
 # Ejemplo de uso
-ejemplo_funcion(100)
+test_funcions(100)

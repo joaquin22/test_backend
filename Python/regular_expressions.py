@@ -1,20 +1,20 @@
 import re
 
-def contar_correos_validos(archivo_texto):
 
+def count_valid_emails(file_text):
 
-  contador_correos = 0
-  with open(archivo_texto, 'r') as f:
-    for linea in f:
-      # Expresión regular para identificar direcciones de correo electrónico
-      regex =r"[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}"
-      # Busca coincidencias en la línea actual
-      coincidencias = re.findall(regex, linea)
-      # Cuenta el número de coincidencias
-      contador_correos += len(coincidencias)
-  return contador_correos
+    email_count = 0
+    with open(file_text, "r") as f:
+        for linea in f:
+            # Expresión regular para identificar direcciones de correo electrónico
+            regex = r"[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}"
+
+            matches = re.findall(regex, linea)
+            email_count += len(matches)
+    return email_count
+
 
 # Ejemplo de uso
-archivo_texto = "correos_ejemplo.txt"
-numero_correos_validos = contar_correos_validos(archivo_texto)
-print(f"Se encontraron {numero_correos_validos} correos electrónicos válidos")  
+file_text = "correos_ejemplo.txt"
+number_of_valid_emails = count_valid_emails(file_text)
+print(f"Se encontraron {number_of_valid_emails} correos electrónicos válidos")

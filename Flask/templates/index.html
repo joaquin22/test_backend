@@ -1,0 +1,7 @@
+<h1>{% block title %} Users {% endblock %}</h1>
+    {% for user in users %}
+    <li>
+        {{ user[1] }}
+        <a href="/user/{{ user[0] }}/" target="_blank">Get User Info</a>
+    </li>
+    {% endfor %}
